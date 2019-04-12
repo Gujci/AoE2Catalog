@@ -7,12 +7,17 @@ import com.gujci.aoe2catalog.model.Civilization
 import com.gujci.aoe2catalog.model.Structure
 import com.gujci.aoe2catalog.model.Technology
 import com.gujci.aoe2catalog.model.Unit
+import com.gujci.aoe2catalog.network.AoEApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class CatalogViewModel() : ViewModel(), CoroutineScope {
+class CatalogViewModel : ViewModel(), CoroutineScope {
+    @Inject
+    lateinit var api: AoEApi
+
     private var job: Job = Job()
 
     override val coroutineContext: CoroutineContext
