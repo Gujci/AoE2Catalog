@@ -36,6 +36,11 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui-ktx:1.0.0"
     implementation 'androidx.core:core-ktx:1.0.1'
 
+    // Room
+    implementation "androidx.room:room-runtime:2.1.0-alpha06"
+    annotationProcessor "androidx.room:room-compiler:2.1.0-alpha06"
+    implementation "androidx.room:room-ktx:2.1.0-alpha06"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestUtil 'androidx.test:orchestrator:1.1.0'
