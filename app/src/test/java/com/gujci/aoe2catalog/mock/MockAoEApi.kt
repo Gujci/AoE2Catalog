@@ -43,7 +43,7 @@ class MockAoEApi : AoEApi {
         )))
     }
 
-    override suspend fun getTechnolog(): TechnologyList {
+    override suspend fun getTechnologies(): TechnologyList {
         return TechnologyList(listOf(Technology(1,
                 "test",
                 "test",

@@ -17,7 +17,7 @@ interface AoEApi {
     suspend fun getStructures(): StructureList
 
     @GET("technologies")
-    suspend fun getTechnolog(): TechnologyList
+    suspend fun getTechnologies(): TechnologyList
 
     @GET("civilization/{id}")
     suspend fun getCivilization(@Path("id") id: Int): Civilization
