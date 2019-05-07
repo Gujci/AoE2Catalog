@@ -4,6 +4,10 @@
       android:layout_width="100dp">
 
         <item
-                android:id="@+id/rootFragment"
-                android:title="Teszt"/>
+                android:id="@+id/fragment_1"
+                android:title="Civs"/>
+
+        <item
+                android:id="@+id/fragment_2"
+                android:title="Tech"/>
 </menu>
