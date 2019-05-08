@@ -3,30 +3,27 @@ package com.gujci.aoe2catalog.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.gujci.aoe2catalog.model.Civilization
 import com.gujci.aoe2catalog.model.Structure
 import com.gujci.aoe2catalog.model.Technology
 import com.gujci.aoe2catalog.model.Unit
 import com.gujci.aoe2catalog.network.AoEApi
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class CatalogViewModel : ViewModel(), CoroutineScope {
+class CatalogViewModel : ViewModel() {
+
     @Inject
     lateinit var api: AoEApi
 
-    private var job: Job = Job()
-
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + job
-
-    fun detachView() = job.cancel()
-
     val civilizationList: LiveData<List<Civilization>> by lazy {
-        MutableLiveData<List<Civilization>>()
+        val result = MutableLiveData<List<Civilization>>()
+        viewModelScope.launch {
+            result.postValue(api.getCivilizations().civilizations)
+        }
+        return@lazy result
     }
 
     val structuresList: LiveData<List<Structure>> by lazy {

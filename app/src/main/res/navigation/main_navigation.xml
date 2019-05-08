@@ -3,12 +3,12 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/nav_main"
-            app:startDestination="@id/fragment_1">
+            app:startDestination="@id/civFragment">
 
     <fragment
-            android:id="@+id/fragment_1"
+            android:id="@+id/civFragment"
             android:label="Civilizations"
-            android:name="com.gujci.aoe2catalog.ui.BlankFragment"
+            android:name="com.gujci.aoe2catalog.ui.CivilizationFragment"
             tools:layout="@layout/home" />
 
     <fragment

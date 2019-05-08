@@ -4,8 +4,8 @@
       android:layout_width="100dp">
 
         <item
-                android:id="@+id/fragment_1"
-                android:title="Civs"/>
+                android:id="@+id/civFragment"
+                android:title="Civilisations"/>
 
         <item
                 android:id="@+id/fragment_2"
