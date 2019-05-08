@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.gujci.aoe2catalog.DaggerAppComponent
 import com.gujci.aoe2catalog.model.Civilization
 import com.gujci.aoe2catalog.model.Structure
 import com.gujci.aoe2catalog.model.Technology
@@ -17,6 +18,10 @@ class CatalogViewModel : ViewModel() {
 
     @Inject
     lateinit var api: AoEApi
+
+    init {
+        DaggerAppComponent.create().inject(this)
+    }
 
     val civilizationList: LiveData<List<Civilization>> by lazy {
         MutableLiveData<List<Civilization>>().also {

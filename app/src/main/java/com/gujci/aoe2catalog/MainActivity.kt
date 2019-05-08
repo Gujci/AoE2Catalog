@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        AoEApplication.appComponent.inject(ViewModelProviders.of(this).get(CatalogViewModel::class.java))
         setContentView(R.layout.activity_main)
 
         navController = findNavController(R.id.nav_host_fragment)

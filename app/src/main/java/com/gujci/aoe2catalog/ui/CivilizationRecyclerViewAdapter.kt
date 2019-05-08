@@ -18,7 +18,7 @@ interface ListInteractionListener {
 }
 
 class CivilizationRecyclerViewAdapter(
-        private val civilisations: LiveData<List<Civilization>>,
+        private val list: LiveData<List<Civilization>>,
         private val listener: ListInteractionListener,
         lifecycleOwner: LifecycleOwner)
     : RecyclerView.Adapter<CivilizationRecyclerViewAdapter.ViewHolder>() {
@@ -28,7 +28,7 @@ class CivilizationRecyclerViewAdapter(
     }
 
     init {
-        civilisations.observe(lifecycleOwner, Observer {
+        list.observe(lifecycleOwner, Observer {
             notifyDataSetChanged()
         })
     }
@@ -38,7 +38,7 @@ class CivilizationRecyclerViewAdapter(
                     .inflate(R.layout.fragment_civilization, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        civilisations.value?.getOrNull(position)?.let {
+        list.value?.getOrNull(position)?.let {
             holder.nameView.text = it.name
             holder.unitView.text = it.unique_unit.first()
             with(holder.mView) {
@@ -48,7 +48,7 @@ class CivilizationRecyclerViewAdapter(
         }
     }
 
-    override fun getItemCount(): Int = civilisations.value?.count() ?: 0
+    override fun getItemCount(): Int = list.value?.count() ?: 0
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         val nameView: TextView = mView.name
