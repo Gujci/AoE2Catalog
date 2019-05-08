@@ -59,8 +59,8 @@ class MockAoEApi : AoEApi {
                 "Test",
                 "test",
                 "testing army",
-                "the tester",
-                "testing",
+                listOf("the tester"),
+                listOf("testing"),
                 "everybody can test",
                 listOf("testing in advance", "testing by mocking"))))
     }
@@ -70,8 +70,8 @@ class MockAoEApi : AoEApi {
                 "Test",
                 "test",
                 "testing army",
-                "the tester",
-                "testing",
+                listOf("the tester"),
+                listOf("testing"),
                 "everybody can test",
                 listOf("testing in advance", "testing by mocking"))
     }
