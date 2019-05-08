@@ -19,11 +19,11 @@ class CatalogViewModel : ViewModel() {
     lateinit var api: AoEApi
 
     val civilizationList: LiveData<List<Civilization>> by lazy {
-        val result = MutableLiveData<List<Civilization>>()
-        viewModelScope.launch {
-            result.postValue(api.getCivilizations().civilizations)
+        MutableLiveData<List<Civilization>>().also {
+            viewModelScope.launch {
+                it.postValue(api.getCivilizations().civilizations)
+            }
         }
-        return@lazy result
     }
 
     val structuresList: LiveData<List<Structure>> by lazy {

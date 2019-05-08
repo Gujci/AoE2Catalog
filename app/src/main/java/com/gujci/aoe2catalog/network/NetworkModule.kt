@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -20,7 +20,7 @@ class NetworkModule {
             Retrofit.Builder()
                     .client(client)
                     .baseUrl(NetworkConfig.AOE_ENDPOINT_ADDRESS)
-                    .addConverterFactory(MoshiConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
                     .build()
                     .create(AoEApi::class.java)
 }
