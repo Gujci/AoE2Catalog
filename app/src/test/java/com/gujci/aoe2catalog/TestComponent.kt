@@ -1,14 +1,14 @@
 package com.gujci.aoe2catalog
 
 import com.gujci.aoe2catalog.interactor.InteractorModule
+import com.gujci.aoe2catalog.mock.MockNetworkModule
 import com.gujci.aoe2catalog.network.NetworkModule
-import com.gujci.aoe2catalog.ui.catalog.CatalogViewModel
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [NetworkModule::class, InteractorModule::class])
-interface AppComponent {
+@Component(modules = [MockNetworkModule::class, InteractorModule::class])
+interface TestComponent {
 
-    fun inject(catalogViewModel: CatalogViewModel)
+    fun inject(catalogTest: CatalogTest)
 }
