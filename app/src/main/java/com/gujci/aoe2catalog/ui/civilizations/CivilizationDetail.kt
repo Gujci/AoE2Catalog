@@ -30,7 +30,8 @@ class CivilizationDetail : Fragment() {
         viewModel.selectedCivilization.value?.let {
             name.text = it.name
             expansion.text = it.expansion
-            bonuses.text = it.civilization_bonus.joinToString("\n -")
+            bonuses.text = it.civilization_bonus.joinToString("\n\n")
+            teamBonus.text = it.team_bonus
         }
     }
 }
