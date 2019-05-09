@@ -22,6 +22,8 @@ class CatalogViewModel : ViewModel() {
         DaggerAppComponent.create().inject(this)
     }
 
+    val selectedCivilization: MutableLiveData<Civilization> = MutableLiveData()
+
     val civilizationList: LiveData<List<Civilization>> by lazy {
         MutableLiveData<List<Civilization>>().also {
             viewModelScope.launch {

@@ -23,11 +23,9 @@ class CivilizationRecyclerViewAdapter(
 
     inner class ViewHolder(mView: View) : CatalogViewHolder<Civilization>(mView) {
         private val nameView: TextView = mView.name
-        private val unitView: TextView = mView.unique_unit
 
         override fun setup(item: Civilization) {
             nameView.text = item.name
-            unitView.text = item.unique_unit.first()
         }
     }
 }

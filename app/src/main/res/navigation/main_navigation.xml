@@ -28,4 +28,18 @@
             android:label="Technologies"
             android:name="com.gujci.aoe2catalog.ui.technologies.TechFragment"
             tools:layout="@layout/fragment_tech_list" />
+
+    <fragment
+            android:id="@+id/civDetailFragment"
+            android:label="Civilization"
+            android:name="com.gujci.aoe2catalog.ui.civilizations.CivilizationDetail"
+            tools:layout="@layout/fragment_civilization_detail" />
+
+    <action
+            android:id="@+id/navigateToCivilizationDetail"
+            app:destination="@id/civDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
 </navigation>
