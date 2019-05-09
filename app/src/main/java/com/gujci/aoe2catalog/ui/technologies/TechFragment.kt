@@ -5,6 +5,7 @@ import com.gujci.aoe2catalog.R
 import com.gujci.aoe2catalog.model.Technology
 import com.gujci.aoe2catalog.ui.catalog.CatalogFragment
 import com.gujci.aoe2catalog.ui.catalog.ListInteractionListener
+import org.jetbrains.anko.toast
 
 class TechFragment: CatalogFragment<Technology, TechRecycleViewAdapter.ViewHolder>(), ListInteractionListener<Technology> {
 
@@ -17,6 +18,6 @@ class TechFragment: CatalogFragment<Technology, TechRecycleViewAdapter.ViewHolde
     }
 
     override fun onListFragmentInteraction(item: Technology?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        context?.toast("not implemented")
     }
 }
