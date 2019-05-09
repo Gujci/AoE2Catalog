@@ -15,4 +15,8 @@
                 android:id="@+id/structureFragment"
                 android:title="Structures"/>
 
+        <item
+                android:id="@+id/techFragment"
+                android:title="Technologies"/>
+
 </menu>

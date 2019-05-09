@@ -13,13 +13,19 @@
 
     <fragment
             android:id="@+id/unitFragment"
-            android:label="Technologies"
+            android:label="Units"
             android:name="com.gujci.aoe2catalog.ui.units.UnitFragment"
             tools:layout="@layout/fragment_unit_list" />
 
     <fragment
             android:id="@+id/structureFragment"
-            android:label="Technologies"
+            android:label="Structures"
             android:name="com.gujci.aoe2catalog.ui.structures.StructureFragment"
             tools:layout="@layout/fragment_unit_list" />
+
+    <fragment
+            android:id="@+id/techFragment"
+            android:label="Technologies"
+            android:name="com.gujci.aoe2catalog.ui.technologies.TechFragment"
+            tools:layout="@layout/fragment_tech_list" />
 </navigation>
