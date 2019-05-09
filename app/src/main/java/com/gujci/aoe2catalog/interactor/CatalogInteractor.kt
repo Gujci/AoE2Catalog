@@ -5,6 +5,7 @@ import com.gujci.aoe2catalog.model.Structure
 import com.gujci.aoe2catalog.model.Technology
 import com.gujci.aoe2catalog.model.Unit
 import com.gujci.aoe2catalog.network.AoEApi
+import com.gujci.aoe2catalog.persistance.AoEDAO
 import javax.inject.Inject
 
 class CatalogInteractor @Inject constructor(private var api: AoEApi) {
