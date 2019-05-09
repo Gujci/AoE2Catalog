@@ -7,20 +7,19 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
-import com.gujci.aoe2catalog.model.Civilization
 
 abstract class CatalogViewHolder<T: Any>(val mView: View): RecyclerView.ViewHolder(mView) {
 
     abstract fun setup(item: T)
 }
 
-interface ListInteractionListener {
-    fun onListFragmentInteraction(item: Civilization?)
+interface ListInteractionListener<T: Any> {
+    fun onListFragmentInteraction(item: T?)
 }
 
 abstract class CatalogRecyclerViewAdapter<DataType: Any, ViewType: CatalogViewHolder<DataType>>(
         private val dataList: LiveData<List<DataType>>,
-        private val listener: ListInteractionListener,
+        private val listener: ListInteractionListener<DataType>,
         lifecycleOwner: LifecycleOwner)
     : RecyclerView.Adapter<ViewType>() {
 
@@ -29,7 +28,7 @@ abstract class CatalogRecyclerViewAdapter<DataType: Any, ViewType: CatalogViewHo
     protected abstract fun getLayoutId(position: Int, obj: DataType): Int
 
     private val singleGameOnClickListener: View.OnClickListener = View.OnClickListener {
-        listener.onListFragmentInteraction(it.tag as Civilization)
+        listener.onListFragmentInteraction(it.tag as? DataType)
     }
 
     init {

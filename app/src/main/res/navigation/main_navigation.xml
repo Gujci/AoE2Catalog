@@ -8,12 +8,18 @@
     <fragment
             android:id="@+id/civFragment"
             android:label="Civilizations"
-            android:name="com.gujci.aoe2catalog.ui.CivilizationFragment"
-            tools:layout="@layout/home" />
+            android:name="com.gujci.aoe2catalog.ui.civilizations.CivilizationFragment"
+            tools:layout="@layout/fragment_civilization_list" />
 
     <fragment
-            android:id="@+id/fragment_2"
+            android:id="@+id/unitFragment"
             android:label="Technologies"
-            android:name="com.gujci.aoe2catalog.ui.BlankFragment"
-            tools:layout="@layout/home" />
+            android:name="com.gujci.aoe2catalog.ui.units.UnitFragment"
+            tools:layout="@layout/fragment_unit_list" />
+
+    <fragment
+            android:id="@+id/structureFragment"
+            android:label="Technologies"
+            android:name="com.gujci.aoe2catalog.ui.structures.StructureFragment"
+            tools:layout="@layout/fragment_unit_list" />
 </navigation>

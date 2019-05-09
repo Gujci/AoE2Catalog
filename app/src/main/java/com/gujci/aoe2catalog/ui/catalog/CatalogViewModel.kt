@@ -1,4 +1,4 @@
-package com.gujci.aoe2catalog.ui
+package com.gujci.aoe2catalog.ui.catalog
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,7 +12,6 @@ import com.gujci.aoe2catalog.model.Unit
 import com.gujci.aoe2catalog.network.AoEApi
 import kotlinx.coroutines.*
 import javax.inject.Inject
-import kotlin.coroutines.CoroutineContext
 
 class CatalogViewModel : ViewModel() {
 
@@ -32,14 +31,26 @@ class CatalogViewModel : ViewModel() {
     }
 
     val structuresList: LiveData<List<Structure>> by lazy {
-        MutableLiveData<List<Structure>>()
+        MutableLiveData<List<Structure>>().also {
+            viewModelScope.launch {
+                it.postValue(api.getStructures().structures)
+            }
+        }
     }
 
     val techList: LiveData<List<Technology>> by lazy {
-        MutableLiveData<List<Technology>>()
+        MutableLiveData<List<Technology>>().also {
+            viewModelScope.launch {
+                it.postValue(api.getTechnologies().technologies)
+            }
+        }
     }
 
     val unitList: LiveData<List<Unit>> by lazy {
-        MutableLiveData<List<Unit>>()
+        MutableLiveData<List<Unit>>().also {
+            viewModelScope.launch {
+                it.postValue(api.getUnits().units)
+            }
+        }
     }
 }

@@ -9,11 +9,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gujci.aoe2catalog.model.Civilization
-import com.gujci.aoe2catalog.ui.CatalogViewModel
 
-abstract class CatalogFragment<T: RecyclerView.ViewHolder>: Fragment(), ListInteractionListener {
+abstract class CatalogFragment<DataType: Any, ViewType: RecyclerView.ViewHolder>: Fragment() {
 
-    abstract val adapter: RecyclerView.Adapter<T>
+    abstract val adapter: RecyclerView.Adapter<ViewType>
     abstract val layout: Int
 
     lateinit var viewModel: CatalogViewModel
@@ -38,9 +37,5 @@ abstract class CatalogFragment<T: RecyclerView.ViewHolder>: Fragment(), ListInte
             this.adapter = adapter
             this.layoutManager = LinearLayoutManager(context)
         }
-    }
-
-    override fun onListFragmentInteraction(item: Civilization?) {
-        TODO("navigate to detail")
     }
 }

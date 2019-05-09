@@ -8,6 +8,11 @@
                 android:title="Civilisations"/>
 
         <item
-                android:id="@+id/fragment_2"
-                android:title="Tech"/>
+                android:id="@+id/unitFragment"
+                android:title="Units"/>
+
+        <item
+                android:id="@+id/structureFragment"
+                android:title="Structures"/>
+
 </menu>

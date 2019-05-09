@@ -1,4 +1,4 @@
-package com.gujci.aoe2catalog.ui
+package com.gujci.aoe2catalog.ui.civilizations
 
 import android.view.View
 import android.widget.TextView
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_civilization.view.*
 
 class CivilizationRecyclerViewAdapter(
         civilisations: LiveData<List<Civilization>>,
-        listener: ListInteractionListener,
+        listener: ListInteractionListener<Civilization>,
         lifecycleOwner: LifecycleOwner)
 : CatalogRecyclerViewAdapter<Civilization, CivilizationRecyclerViewAdapter.ViewHolder>(civilisations, listener, lifecycleOwner) {
 
