@@ -25,4 +25,22 @@ class CatalogTest {
         val civilizations = runBlocking { interactor.loadCivilizations() }
         assert(civilizations.count() > 0)
     }
+
+    @Test
+    fun getUnits() {
+        val units = runBlocking { interactor.loadUnits() }
+        assert(units.count() > 0)
+    }
+
+    @Test
+    fun getStructures() {
+        val structures = runBlocking { interactor.loadStructures() }
+        assert(structures.count() > 0)
+    }
+
+    @Test
+    fun getTechnologies() {
+        val technologies = runBlocking { interactor.loadTechnologies() }
+        assert(technologies.count() > 0)
+    }
 }
