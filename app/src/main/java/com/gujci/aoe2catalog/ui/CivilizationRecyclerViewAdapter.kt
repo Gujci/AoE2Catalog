@@ -1,57 +1,33 @@
 package com.gujci.aoe2catalog.ui
 
-import androidx.recyclerview.widget.RecyclerView
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import com.gujci.aoe2catalog.R
 import com.gujci.aoe2catalog.model.Civilization
-
+import com.gujci.aoe2catalog.ui.catalog.CatalogRecyclerViewAdapter
+import com.gujci.aoe2catalog.ui.catalog.CatalogViewHolder
+import com.gujci.aoe2catalog.ui.catalog.ListInteractionListener
 import kotlinx.android.synthetic.main.fragment_civilization.view.*
 
-interface ListInteractionListener {
-    fun onListFragmentInteraction(item: Civilization?)
-}
-
 class CivilizationRecyclerViewAdapter(
-        private val list: LiveData<List<Civilization>>,
-        private val listener: ListInteractionListener,
+        civilisations: LiveData<List<Civilization>>,
+        listener: ListInteractionListener,
         lifecycleOwner: LifecycleOwner)
-    : RecyclerView.Adapter<CivilizationRecyclerViewAdapter.ViewHolder>() {
+: CatalogRecyclerViewAdapter<Civilization, CivilizationRecyclerViewAdapter.ViewHolder>(civilisations, listener, lifecycleOwner) {
 
-    private val singleGameOnClickListener: View.OnClickListener = View.OnClickListener {
-        listener.onListFragmentInteraction(it.tag as Civilization)
-    }
+    override fun getLayoutId(position: Int, obj: Civilization): Int = R.layout.fragment_civilization
 
-    init {
-        list.observe(lifecycleOwner, Observer {
-            notifyDataSetChanged()
-        })
-    }
+    override fun getViewHolder(view: View, viewType: Int): ViewHolder = ViewHolder(view)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-            ViewHolder(LayoutInflater.from(parent.context)
-                    .inflate(R.layout.fragment_civilization, parent, false))
+    inner class ViewHolder(mView: View) : CatalogViewHolder<Civilization>(mView) {
+        private val nameView: TextView = mView.name
+        private val unitView: TextView = mView.unique_unit
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        list.value?.getOrNull(position)?.let {
-            holder.nameView.text = it.name
-            holder.unitView.text = it.unique_unit.first()
-            with(holder.mView) {
-                this.tag = it
-                setOnClickListener(singleGameOnClickListener)
-            }
+        override fun setup(item: Civilization) {
+            nameView.text = item.name
+            unitView.text = item.unique_unit.first()
         }
-    }
-
-    override fun getItemCount(): Int = list.value?.count() ?: 0
-
-    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        val nameView: TextView = mView.name
-        val unitView: TextView = mView.unique_unit
     }
 }

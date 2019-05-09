@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gujci.aoe2catalog.model.Civilization
 import com.gujci.aoe2catalog.ui.CatalogViewModel
-import com.gujci.aoe2catalog.ui.ListInteractionListener
 
 abstract class CatalogFragment<T: RecyclerView.ViewHolder>: Fragment(), ListInteractionListener {
 
