@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.gujci.aoe2catalog.MainActivity
 import com.gujci.aoe2catalog.R
 import com.gujci.aoe2catalog.ui.catalog.CatalogViewModel
 import kotlinx.android.synthetic.main.fragment_civilization.name
 import kotlinx.android.synthetic.main.fragment_civilization_detail.*
-import java.lang.Exception
+import org.jetbrains.anko.bundleOf
 
 class CivilizationDetail : Fragment() {
 
@@ -32,6 +34,9 @@ class CivilizationDetail : Fragment() {
             expansion.text = it.expansion
             bonuses.text = it.civilization_bonus.joinToString("\n\n")
             teamBonus.text = it.team_bonus
+
+            MainActivity.firebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM,
+                    bundleOf(FirebaseAnalytics.Param.ITEM_NAME to it.name))
         }
     }
 }

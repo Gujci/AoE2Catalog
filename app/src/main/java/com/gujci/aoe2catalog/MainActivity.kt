@@ -14,7 +14,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
-    private lateinit var firebaseAnalytics: FirebaseAnalytics
+
+    companion object {
+        lateinit var firebaseAnalytics: FirebaseAnalytics
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

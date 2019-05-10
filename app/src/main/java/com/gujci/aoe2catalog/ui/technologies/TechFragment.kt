@@ -18,6 +18,6 @@ class TechFragment: CatalogFragment<Technology, TechRecycleViewAdapter.ViewHolde
     }
 
     override fun onListFragmentInteraction(item: Technology?) {
-        context?.toast("not implemented")
+        TODO("Firebase crash test")
     }
 }
